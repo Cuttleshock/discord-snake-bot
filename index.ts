@@ -42,6 +42,12 @@ const handleSnakes = (msg: Discord.Message, args: Array<string>) => {
 
     let ret = ``;
 
+    if (args[1] !== undefined) {
+        if (vals.smallWords.includes(args[1])) {
+            ret += `\u200B`;
+        }
+    }
+
     if (howMany > 0) {
         for (let i = 0; i < howMany; ++i) {
             ret += `:snake: `;

@@ -20,6 +20,40 @@ const handlePing = async (msg: Discord.Message, args: Array<string>) => {
     const timeTaken = res.createdTimestamp - msg.createdTimestamp;
     res.edit(`\u200B${timeTaken}ms`);
 }
+
+const handleSnakes = (msg: Discord.Message, args: Array<string>) => {
+    if (args.length === 0) {
+        msg.channel.send(`how many??`);
+        return;
+    }
+
+    const howMany = parseFloat(args[0]);
+
+    if (isNaN(howMany)) {
+        msg.channel.send(`no!`);
+        return;
+    } else if (howMany > 10 || howMany < -10) {
+        msg.channel.send(`too many...`);
+        return;
+    } else if (howMany === 0) {
+        msg.channel.send(`no snakes...`);
+        return;
+    }
+
+    let ret = ``;
+
+    if (howMany > 0) {
+        for (let i = 0; i < howMany; ++i) {
+            ret += `:snake: `;
+        }    
+    } else if (howMany < 0) {
+        for (let i = 0; i > howMany; --i) {
+            ret += `:worm: `;
+        }
+    }
+    msg.channel.send(ret);
+}
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -34,6 +68,10 @@ client.on('message', (msg: Discord.Message) => {
     switch (command) {
         case 'ping':
             handlePing(msg, args);
+            break;
+
+        case 'snakes':
+            handleSnakes(msg, args);
             break;
 
         default:

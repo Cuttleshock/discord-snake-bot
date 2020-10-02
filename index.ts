@@ -32,6 +32,9 @@ const handleSnakes = (msg: Discord.Message, args: Array<string>) => {
     if (isNaN(howMany)) {
         msg.channel.send(`no!`);
         return;
+    } else if (!Number.isInteger(howMany)) {
+        msg.channel.send(`weird`);
+        return;
     } else if (howMany > 10 || howMany < -10) {
         msg.channel.send(`too many...`);
         return;

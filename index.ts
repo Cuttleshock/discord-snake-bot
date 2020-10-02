@@ -14,6 +14,12 @@ const shouldQuickExitMessage = (msg: Discord.Message) => {
 
     return false;
 }
+
+const handlePing = async (msg: Discord.Message, args: Array<string>) => {
+    const res = await msg.channel.send(`\u200Bwait`);
+    const timeTaken = res.createdTimestamp - msg.createdTimestamp;
+    res.edit(`\u200B${timeTaken}ms`);
+}
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -26,6 +32,10 @@ client.on('message', (msg: Discord.Message) => {
     const command = args.shift().toLowerCase();
 
     switch (command) {
+        case 'ping':
+            handlePing(msg, args);
+            break;
+
         default:
             break;
     }

@@ -1,11 +1,13 @@
+import * as dotenv from 'dotenv-flow';
+dotenv.config();
+
 import Discord from 'discord.js';
 
-import config from '../config-secrets/config-hw-bot.json';
 import * as vals from './values';
 
 const client = new Discord.Client();
 
-client.login(config.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
 
 const shouldQuickExitMessage = (msg: Discord.Message) => {
     if (msg.author.bot

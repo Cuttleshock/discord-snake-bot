@@ -12,3 +12,6 @@ export const smallWords = [
     'smol',
     'tiny',
 ];
+
+// Word-separation characters
+export const splitRegex = /[ -_]/;

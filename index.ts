@@ -12,6 +12,7 @@ client.login(process.env.BOT_TOKEN);
 const shouldQuickExitMessage = (msg: Discord.Message) => {
     if (msg.author.bot
      || !msg.content.startsWith(vals.prefix)
+     || !msg.guild
     ) return true;
 
     return false;

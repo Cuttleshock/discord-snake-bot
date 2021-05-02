@@ -1,5 +1,5 @@
 {
-  "name": "hw-bot",
+  "name": "snake-bot",
   "version": "1.0.0",
   "description": "first discord bot",
   "main": "index.js",

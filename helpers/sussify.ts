@@ -1,6 +1,6 @@
 import { geometricDistribution } from './geoDis';
 
-export const sussify = (str: string) => {
+export const sussify = (str: string): string => {
     let ret: string;
 
     const len = str.length;

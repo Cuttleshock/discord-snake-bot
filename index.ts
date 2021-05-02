@@ -23,29 +23,23 @@ client.on('message', (msg: Discord.Message) => {
 
     switch (command) {
         case 'ping':
-            handlers.ping(msg, args);
+            handlers.ping(msg);
             break;
-
         case 'snakes':
             handlers.snakes(msg, args);
             break;
-
         case 'sus':
             handlers.sus(msg);
             break;
-
         case 'sees':
             handlers.sees(msg);
             break;
-
-        case 'susname':
-            handlers.susName(msg, args);
-            break;
-
+        // case 'susname':
+        //     handlers.susName(msg, args);
+        //     break;
         case 'embed':
             handlers.embed(msg, args, client);
             break;
-
         default:
             break;
     }

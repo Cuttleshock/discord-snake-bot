@@ -1,6 +1,6 @@
 import * as Discord from 'discord.js';
 
-const handleEmbed = (msg: Discord.Message, args: Array<string>, client: Discord.Client) => {
+const handleEmbed = (msg: Discord.Message, args: Array<string>, client: Discord.Client): void => {
     const ret = new Discord.MessageEmbed();
 
     ret.setColor('#990000');

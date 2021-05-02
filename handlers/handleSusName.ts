@@ -3,13 +3,11 @@ import * as Discord from 'discord.js';
 import { splitWordlike } from '../helpers/splitWords';
 import { sussify } from '../helpers/sussify';
 
-const handleSusName = async (msg: Discord.Message, args: Array<string>) => {
-    let ret: string = 'oops broken';
-    msg.channel.send(ret);
-    return;
+const handleSusName = async (msg: Discord.Message, args: Array<string>): Promise<void> => {
+    // TODO: broken
 
     let target: Discord.GuildMember = msg.member;
-    let splitWords: boolean = false;
+    let splitWords = false;
 
     const user = msg.mentions.members.first();
     if (user) {
@@ -38,11 +36,10 @@ const handleSusName = async (msg: Discord.Message, args: Array<string>) => {
     const nameSet = await msg.guild.member(user).setNickname(newName);
     
     if (nameSet.nickname === newName) {
-        msg.reply(`Nickname successfully changed: ${oldName} -> ${newName}`);
+        msg.reply(`Nickname successfully changed: [${oldName}] -> [${newName}]`);
     } else {
-        msg.reply(`Couldn't sus name: permission error?`);
+        msg.reply('Couldn\'t sus name: permission error?');
     }
-
 }
 
 export default handleSusName;

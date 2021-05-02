@@ -1,4 +1,4 @@
-export const geometricDistribution = (p: number, max: number) => {
+export const geometricDistribution = (p: number, max: number): number => {
     if (p < 0 || 1 <= p) {
         throw new Error(`Impossible probability ${p} passed into geometricDistribution()`);
     }

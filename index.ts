@@ -8,7 +8,6 @@ import * as vals from './values';
 import handlers from './handlers/exports';
 
 const client = new Discord.Client();
-client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -44,6 +43,8 @@ client.on('message', (msg: Discord.Message) => {
             break;
     }
 });
+
+client.login(process.env.BOT_TOKEN);
 
 const shouldQuickExitMessage = (msg: Discord.Message) => {
     if (msg.author.bot

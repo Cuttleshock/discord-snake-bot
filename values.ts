@@ -15,3 +15,5 @@ export const smallWords = [
 
 // Word-separation characters
 export const splitRegex = /[ -_]/;
+
+export const baseDir = __dirname;

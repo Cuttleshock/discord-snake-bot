@@ -1,0 +1,7 @@
+{
+    "ext": "ts,json",
+    "verbose": true,
+    "ignore": [
+        ".git"
+    ]
+}

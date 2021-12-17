@@ -1,6 +1,6 @@
 // Command prefixes
 export const prefix = '==';
-export const prefixLen = 2;
+export const prefixLen = prefix.length;
 
 // For use in requesting small emoji as output when they would otherwise be large
 export const smallWords = [

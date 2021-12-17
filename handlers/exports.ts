@@ -4,6 +4,7 @@ import bite from './handleBite';
 import embed from './handleEmbed';
 import ping from './handlePing';
 import snakes from './handleSnakes';
+import react from './handleReact';
 
 const commandNotFound: Command = ({ command, msg }) => {
     msg.reply(`Sorry, we don't like "${command}" here at BarbieWorld`);
@@ -14,6 +15,7 @@ const handler = new Proxy<{ [command: string]: Command }>({
     embed,
     ping,
     snakes,
+    react,
 }, {
     get: function(target, key: string) {
         return target[key] ?? commandNotFound;

@@ -2,8 +2,9 @@ import * as Discord from 'discord.js';
 
 import { splitWordlike } from '../helpers/splitWords';
 import { sussify } from '../helpers/sussify';
+import { Command } from './exports';
 
-const handleSusName = async (msg: Discord.Message, args: Array<string>): Promise<void> => {
+const handleSusName: Command = async ({ msg, args }) => {
     // TODO: broken
 
     let target: Discord.GuildMember = msg.member;

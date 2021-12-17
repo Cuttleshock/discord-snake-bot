@@ -1,6 +1,6 @@
-import * as Discord from 'discord.js';
+import { Command } from './exports';
 
-const handleBite = (msg: Discord.Message): void => {
+const handleBite: Command = ({ msg }) => {
     let ret = '';
 
     ret = 'sssss <I CAN\'T BITE YET>';

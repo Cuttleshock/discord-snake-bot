@@ -1,6 +1,6 @@
-import * as Discord from 'discord.js';
+import { Command } from './exports';
 
-const handleSus = async (msg: Discord.Message): Promise<void> => {
+const handleSus: Command = async ({ msg }) => {
     let ret = '';
 
     // fetch the last message before this and sus its text

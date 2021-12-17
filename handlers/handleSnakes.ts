@@ -1,8 +1,7 @@
-import * as Discord from 'discord.js';
-
 import * as vals from '../values';
+import { Command } from './exports';
 
-const handleSnakes = (msg: Discord.Message, args: Array<string>): void => {
+const handleSnakes: Command = ({ msg, args }) => {
     if (args.length === 0) {
         msg.channel.send('how many??');
         return;

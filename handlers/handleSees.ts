@@ -1,6 +1,6 @@
-import * as Discord from 'discord.js';
+import { Command } from './exports';
 
-const handleSees = async (msg: Discord.Message): Promise<void> => {
+const handleSees: Command = async ({ msg }) => {
     let ret = '';
 
     // TODO: Fetch the last message before this, split it up and sus each word

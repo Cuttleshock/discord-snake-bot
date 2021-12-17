@@ -3,7 +3,7 @@ import * as Discord from 'discord.js';
 import * as fs from 'fs';
 
 import { baseDir } from '../values';
-import { Command } from './exports';
+import { Command } from '@types';
 
 export const handlePing: Command = async ({ msg }) => {
     if (Math.random() < 0.5) {

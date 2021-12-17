@@ -1,6 +1,6 @@
 import * as Discord from 'discord.js';
 
-import { Command } from './exports';
+import { Command } from '@types';
 
 const handleEmbed: Command = ({ msg, client }) => {
     const ret = new Discord.MessageEmbed();

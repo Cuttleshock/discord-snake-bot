@@ -7,7 +7,11 @@
         "resolveJsonModule": true,
         "sourceMap": true,
         "outDir": "dist",
-        "lib": ["ES6", "ES2018", "DOM"]
+        "lib": ["ES6", "ES2018", "DOM"],
+        "typeRoots": ["./types", "./node_modules/@types"],
+        "paths": {
+            "@types": ["./types/index.d.ts"],
+        },
     },
     "lib": ["es2015"]
 }

@@ -1,5 +1,5 @@
 import * as vals from '../values';
-import { Command } from './exports';
+import { Command } from '@types';
 
 const handleSnakes: Command = ({ msg, args }) => {
     if (args.length === 0) {

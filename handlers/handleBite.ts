@@ -1,4 +1,4 @@
-import { Command } from './exports';
+import { Command } from '@types';
 
 const handleBite: Command = ({ msg }) => {
     let ret = '';

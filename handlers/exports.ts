@@ -1,4 +1,4 @@
-import Discord from 'discord.js';
+import { Command, HandlerParams } from '@types';
 
 import bite from './handleBite';
 import embed from './handleEmbed';
@@ -23,12 +23,3 @@ const handler = new Proxy<{ [command: string]: Command }>({
 export default function runCommand(command: string, args: Omit<HandlerParams, 'command'>): ReturnType<Command> {
     return handler[command]({ ...args, command });
 }
-
-interface HandlerParams {
-    command: string,
-    msg: Discord.Message,
-    args: Array<string>,
-    client: Discord.Client,
-}
-
-export type Command = (params: HandlerParams) => void | Promise<void>;

@@ -4,10 +4,12 @@ export default function bulkDerange(n: number): Array<number> {
         const partialDerangement = bulkDerangeEven(n-1);
         // Pick an element to fix and rearrange the current derangement around it
         const m1 = Math.floor(Math.random()*n);
-        partialDerangement.splice(m1, 0, m1);
-        for (let i = m1+1; i < n; ++i) {
-            ++partialDerangement[i];
+        for (let i = 0; i < partialDerangement.length; ++i) {
+            if (partialDerangement[i] >= m1) {
+                ++partialDerangement[i];
+            }
         }
+        partialDerangement.splice(m1, 0, m1);
         // Pick an element to swap with the fixed element
         let m2 = Math.floor(Math.random()*(n-1));
         if (m2 >= m1) {

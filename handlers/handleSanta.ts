@@ -1,8 +1,6 @@
 import { Command } from '@types';
 import { MessageReaction, User } from 'discord.js';
 
-const SANTA_MAX_ATTEMPTS = 10;
-
 const handleSanta: Command = async ({ msg, client }) => {
     const response = await msg.channel.send('If you weren\'t mentioned, react with a valid pastry to join the Secret Santa exchange!');
     response.react('🥐');
@@ -33,7 +31,8 @@ const handleSanta: Command = async ({ msg, client }) => {
 
         let cycles: Array<Array<User>> = [];
         let attempts = 0;
-        while (!validateSanta(cycles) && attempts < SANTA_MAX_ATTEMPTS) {
+        // TODO: Defer to proceduralDerange() here
+        while (!validateSanta(cycles) && attempts < parseInt(process.env.SANTA_MAX_ATTEMPTS)) {
             cycles = [];
             const usersCopy = [...users];
             ++attempts;
@@ -58,7 +57,7 @@ const handleSanta: Command = async ({ msg, client }) => {
         }
 
         if (!validateSanta(cycles)) {
-            msg.channel.send(`Couldn't get a valid configuration after ${SANTA_MAX_ATTEMPTS} tries :(`);
+            msg.channel.send(`Couldn't get a valid configuration after ${process.env.SANTA_MAX_ATTEMPTS} tries :(`);
             return;
         }
 

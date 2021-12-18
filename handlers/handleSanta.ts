@@ -2,7 +2,7 @@ import { Command } from '@types';
 import { MessageReaction, User } from 'discord.js';
 
 const handleSanta: Command = async ({ msg, client }) => {
-    const response = await msg.channel.send('React with a valid pastry to join a Secret Santa exchange!');
+    const response = await msg.channel.send('If you weren\'t mentioned, react with a valid pastry to join the Secret Santa exchange!');
     response.react('🥐');
 
     const collector = response.createReactionCollector((reaction: MessageReaction) => {
@@ -17,7 +17,7 @@ const handleSanta: Command = async ({ msg, client }) => {
 
         for (const c of collected.values()) {
             const collectedUsers = await c.users.fetch();
-            for (const u of collectedUsers.values()) {
+            for (const u of [...collectedUsers.values(), ...msg.mentions.users.values()]) {
                 if (u.id === client.user.id || u.bot) {
                     continue;
                 } // else:

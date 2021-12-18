@@ -49,10 +49,10 @@ const handleSanta: Command = async ({ msg, client }) => {
             }
         }
 
-        let response = '';
         for (const c of cycles) {
             for (let i = 0; i < c.length; ++i) {
-                response += `${c[i]} will give to ${c[i+1] ?? c[0]}\n`;
+                const dm = await c[i].createDM();
+                dm.send(`You'll get a present for: ${c[i+1] ?? c[0]}`);
             }
         }
         msg.channel.send(response);

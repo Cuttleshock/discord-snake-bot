@@ -26,7 +26,8 @@ export default function bulkDerange(n: number): Array<number> {
 
 function bulkDerangeEven(n: number): Array<number> {
     const input = [...Array(n).keys()];
-    const arranged = [...input].sort(() => Math.random() - 0.5);
+    const randomSeeds = Array.from(Array(n), () => Math.random());
+    const arranged = [...input].sort((a,b) => randomSeeds[a]-randomSeeds[b]);
 
     for (let i = 0; i < n; ++i) {
         // Check if 'arranged' is valid derangement

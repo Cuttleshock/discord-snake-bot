@@ -6,6 +6,7 @@ import ping from './handlePing';
 import snakes from './handleSnakes';
 import react from './handleReact';
 import hmu from './handleHmu';
+import santa from './handleSanta';
 
 const commandNotFound: Command = ({ command, msg }) => {
     msg.reply(`Sorry, we don't like "${command}" here at BarbieWorld`);
@@ -18,6 +19,7 @@ const handler = new Proxy<{ [command: string]: Command }>({
     snakes,
     react,
     hmu,
+    santa,
 }, {
     get: function(target, key: string) {
         return target[key] ?? commandNotFound;

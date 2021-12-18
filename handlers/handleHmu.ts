@@ -10,8 +10,8 @@ const handleHmu: Command = async ({ msg }) => {
 
     const messaged = new Set<string>();
 
-    collector.on('collect', async collected => {
-        const users = await collected.users.fetch();
+    collector.on('collect', async reaction => {
+        const users = await reaction.users.fetch();
 
         users.forEach(async u => {
             if (messaged.has(u.id)) {

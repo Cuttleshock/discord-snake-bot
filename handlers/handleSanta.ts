@@ -55,7 +55,13 @@ const handleSanta: Command = async ({ msg, client }) => {
                 dm.send(`You'll get a present for: ${c[i+1] ?? c[0]}`);
             }
         }
-        msg.channel.send(response);
+
+        let confirmation = 'The following people will take part:\n';
+        for (const u of users) {
+            confirmation += `${u}, `;
+        }
+        confirmation = confirmation.slice(0, -2);
+        msg.channel.send(confirmation);
     });
 }
 

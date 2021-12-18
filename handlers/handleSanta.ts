@@ -18,7 +18,7 @@ const handleSanta: Command = async ({ msg, client }) => {
         for (const c of collected.values()) {
             const collectedUsers = await c.users.fetch();
             for (const u of collectedUsers.values()) {
-                if (u.id === client.user.id) {
+                if (u.id === client.user.id || u.bot) {
                     continue;
                 } // else:
                 users.push(u);

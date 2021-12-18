@@ -1,6 +1,8 @@
 import { Command } from '@types';
 import { MessageReaction, User } from 'discord.js';
 
+const SANTA_MAX_ATTEMPTS = 10;
+
 const handleSanta: Command = async ({ msg, client }) => {
     const response = await msg.channel.send('If you weren\'t mentioned, react with a valid pastry to join the Secret Santa exchange!');
     response.react('🥐');
@@ -52,7 +54,8 @@ const handleSanta: Command = async ({ msg, client }) => {
         for (const c of cycles) {
             for (let i = 0; i < c.length; ++i) {
                 const dm = await c[i].createDM();
-                dm.send(`You'll get a present for: ${c[i+1] ?? c[0]}`);
+                const recipient = c[i+1] ?? c[0];
+                dm.send(`You'll get a present for: ${recipient} (${recipient.tag})`);
             }
         }
 

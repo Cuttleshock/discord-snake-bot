@@ -34,7 +34,6 @@ const handleSanta: Command = async ({ msg, client }) => {
         let i: number;
 
         while (users.length > 1) {
-            console.log(users.map(u => u.tag));
             if (users.length === 2) {
                 i = 1; // Match with only remaining person (should be able to combine w/ below)
             } else if (cycles[cycles.length-1].length === 1) {

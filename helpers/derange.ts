@@ -25,7 +25,7 @@ export default function bulkDerange(n: number): Array<number> {
 }
 
 function bulkDerangeEven(n: number): Array<number> {
-    const input = new Array(n).map((_, i) => i+1);
+    const input = [...Array(n).keys()];
     const arranged = [...input].sort(() => Math.random() - 0.5);
 
     for (let i = 0; i < n; ++i) {
@@ -50,7 +50,7 @@ function bulkDerangeEven(n: number): Array<number> {
 }
 
 export function proceduralDerange(n: number): Array<number> {
-    const input = new Array(n).map((_, i) => i+1);
+    const input = [...Array(n).keys()];
     const cycles: Array<Array<number>> = [[0]];
     let i: number; // Value to pull out of input and into the latest cycle
 
